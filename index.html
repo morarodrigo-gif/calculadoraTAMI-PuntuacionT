@@ -58,27 +58,15 @@
         }
         
         footer {
-            /* 1. Centra horizontalmente todo el texto y enlaces */
             text-align: center; 
             
-            /* 2. Estilos visuales (puedes cambiarlos) */
-            background-color: #021a50; /* Fondo oscuro */
-            color: #ffffff;            /* Texto blanco */
-            padding: 20px 0;        /* Espacio arriba y abajo */
+            background-color: #021a50; 
+            color: #ffffff;           
+            padding: 20px 0;        
           
-            border-top: 3px solid #001d3b; /* Línea de color arriba */
+            border-top: 3px solid #001d3b; 
         }
 
-        /* Estilos para los enlaces dentro del footer (opcional) */
-        footer a {
-            color: #007BFF;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
@@ -103,9 +91,7 @@
     </div>
     
     <script>
-        // --- INICIO DEL CÓDIGO JAVASCRIPT ---
-        
-        // Tablas de conversión basadas en su CSV
+
         // { Puntuación_Cruda: Puntuación_T }
         const tablas = {
             asertividad: {
@@ -148,29 +134,27 @@
             const puntajeCrudoInput = document.getElementById('puntaje_crudo').value;
             const resultadoDiv = document.getElementById('resultado');
             
-            // Validar la entrada
+           
             if (puntajeCrudoInput === "" || isNaN(puntajeCrudoInput)) {
-                resultadoDiv.innerHTML = "❌ Por favor, ingrese un número válido para la Puntuación Cruda.";
+                resultadoDiv.innerHTML = "Por favor, ingrese un número válido para la Puntuación Cruda.";
                 return;
             }
             
             const puntajeCrudo = parseInt(puntajeCrudoInput, 10);
             
-            // Obtener la tabla de conversión
+
             const tablaActual = tablas[escala];
             
-            // Buscar la Puntuación T
-            // Nota: Se utiliza String(puntajeCrudo) porque las claves del objeto son cadenas
+    
             const puntajeT = tablaActual[String(puntajeCrudo)];
             
             if (puntajeT !== undefined) {
-                resultadoDiv.innerHTML = `✅ La Puntuación T para ${puntajeCrudo} en la escala de ${escala.charAt(0).toUpperCase() + escala.slice(1)} es: <span style="color: #e74c3c;">${puntajeT}</span>`;
+                resultadoDiv.innerHTML = `La Puntuación T para ${puntajeCrudo} en la escala de ${escala.charAt(0).toUpperCase() + escala.slice(1)} es: <span style="color: #e74c3c;">${puntajeT}</span>`;
             } else {
-                resultadoDiv.innerHTML = `⚠️ Puntuación Cruda de ${puntajeCrudo} está fuera del rango para la escala de ${escala.charAt(0).toUpperCase() + escala.slice(1)}.`;
+                resultadoDiv.innerHTML = `Puntuación Cruda de ${puntajeCrudo} está fuera del rango para la escala de ${escala.charAt(0).toUpperCase() + escala.slice(1)}.`;
             }
         }
         
-        // --- FIN DEL CÓDIGO JAVASCRIPT ---
     </script>
     <footer>
     <p>Márquez et al. (2025). Test de Asertividad Multidimensional Integral.</p>
